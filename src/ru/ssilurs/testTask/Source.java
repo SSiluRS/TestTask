@@ -1,6 +1,5 @@
 package ru.ssilurs.testTask;
 
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,24 +19,24 @@ public class Source {
         todayState.put("url4", "html4");
 
         StringBuilder emailContent = new StringBuilder();
-        emailContent.append("Здравствуйте, дорогая и.о. секретаря\n\n");
-        emailContent.append("За последние сутки во вверенных Вам сайтах произошли следующие изменения:\n\n");
+        emailContent.append("Р—РґСЂР°РІСЃС‚РІСѓР№С‚Рµ, РґРѕСЂРѕРіР°СЏ Рё.Рѕ. СЃРµРєСЂРµС‚Р°СЂСЏ\n\n");
+        emailContent.append("Р—Р° РїРѕСЃР»РµРґРЅРёРµ СЃСѓС‚РєРё РІРѕ РІРІРµСЂРµРЅРЅС‹С… Р’Р°Рј СЃР°Р№С‚Р°С… РїСЂРѕРёР·РѕС€Р»Рё СЃР»РµРґСѓСЋС‰РёРµ РёР·РјРµРЅРµРЅРёСЏ:\n\n");
 
-        emailContent.append("Исчезли следующие страницы:\n");
+        emailContent.append("РСЃС‡РµР·Р»Рё СЃР»РµРґСѓСЋС‰РёРµ СЃС‚СЂР°РЅРёС†С‹:\n");
         for (String url : yesterdayState.keySet()) {
             if (!todayState.containsKey(url)) {
                 emailContent.append(url).append("\n");
             }
         }
 
-        emailContent.append("\nПоявились следующие новые страницы:\n");
+        emailContent.append("\nРџРѕСЏРІРёР»РёСЃСЊ СЃР»РµРґСѓСЋС‰РёРµ РЅРѕРІС‹Рµ СЃС‚СЂР°РЅРёС†С‹:\n");
         for (String url : todayState.keySet()) {
             if (!yesterdayState.containsKey(url)) {
                 emailContent.append(url).append("\n");
             }
         }
 
-        emailContent.append("\nИзменились следующие страницы:\n");
+        emailContent.append("\nРР·РјРµРЅРёР»РёСЃСЊ СЃР»РµРґСѓСЋС‰РёРµ СЃС‚СЂР°РЅРёС†С‹:\n");
         for (String url : yesterdayState.keySet()) {
             if (todayState.containsKey(url) && !yesterdayState.get(url).equals(todayState.get(url))) {
                 emailContent.append(url).append("\n");
